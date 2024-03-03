@@ -1,0 +1,95 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "publications Collections",
+    "dateExported": "2024-03-03T08:51:42.277Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "e0139347-a0a1-4e16-8362-3ffd6aca57eb",
+            "colId": "c7915149-76b8-4d23-b11b-a243459c4159",
+            "containerId": "",
+            "name": "Publications Post",
+            "url": "http://localhost:3000/OpinionApi/v1/publication",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-03T06:03:32.014Z",
+            "modified": "2024-03-03T08:01:13.934Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU0MjYxNzQ2MTJmYTgzNWNhM2EyYmQiLCJpYXQiOjE3MDk0NTIzNjcsImV4cCI6MTcwOTQ1OTU2N30.bkkzI5A5qDfqbI-jSShTUJhVajDQYsCng21Px3gwEoQ"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"i got a girlfriend!!!\",\n  \"category\": \"True or False\",\n  \"text\": \"is this a joke?\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "722fb9f7-b73e-4078-b826-60603c506a46",
+            "colId": "c7915149-76b8-4d23-b11b-a243459c4159",
+            "containerId": "",
+            "name": "Publications Get",
+            "url": "http://localhost:3000/OpinionApi/v1/publication",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-03T06:03:43.818Z",
+            "modified": "2024-03-03T08:09:35.746Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU0MjYxNzQ2MTJmYTgzNWNhM2EyYmQiLCJpYXQiOjE3MDk0NTIzNjcsImV4cCI6MTcwOTQ1OTU2N30.bkkzI5A5qDfqbI-jSShTUJhVajDQYsCng21Px3gwEoQ"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e9fde5cc-5feb-40d0-93f0-db90eac14f67",
+            "colId": "c7915149-76b8-4d23-b11b-a243459c4159",
+            "containerId": "",
+            "name": "Publication Put",
+            "url": "http://localhost:3000/OpinionApi/v1/publication/65e42e4913bb5a26c89fdc9c",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-03-03T08:12:12.089Z",
+            "modified": "2024-03-03T08:23:24.916Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU0MjYxNzQ2MTJmYTgzNWNhM2EyYmQiLCJpYXQiOjE3MDk0NTIzNjcsImV4cCI6MTcwOTQ1OTU2N30.bkkzI5A5qDfqbI-jSShTUJhVajDQYsCng21Px3gwEoQ"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"I got a girlfriend?\",\n  \"category\": \"True or false\",\n  \"text\": \"Is false\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ca466745-d41c-4e72-9556-b4a4fe64d43c",
+            "colId": "c7915149-76b8-4d23-b11b-a243459c4159",
+            "containerId": "",
+            "name": "Publications Delete",
+            "url": "http://localhost:3000/OpinionApi/v1/publication/65e42e0313bb5a26c89fdc99",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-03-03T08:24:01.554Z",
+            "modified": "2024-03-03T08:25:24.852Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWU0MjYxNzQ2MTJmYTgzNWNhM2EyYmQiLCJpYXQiOjE3MDk0NTIzNjcsImV4cCI6MTcwOTQ1OTU2N30.bkkzI5A5qDfqbI-jSShTUJhVajDQYsCng21Px3gwEoQ"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const CommentSchema = mongoose.Schema({
-    idUser: {
+    id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },

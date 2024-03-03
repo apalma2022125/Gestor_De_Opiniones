@@ -1,0 +1,28 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Login",
+    "dateExported": "2024-03-03T08:51:53.178Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "c5eb4483-273c-4933-954d-e7b4b4096c07",
+            "colId": "e00ceeed-8c25-4152-b45a-73b53b65168a",
+            "containerId": "",
+            "name": "Login Post",
+            "url": "http://localhost:3000/OpinionApi/v1/auth/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-03T07:50:50.311Z",
+            "modified": "2024-03-03T07:52:47.464Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"usuario1@gmail.com\",\n  \"password\": \"222222\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

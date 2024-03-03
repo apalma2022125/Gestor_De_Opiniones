@@ -2,56 +2,44 @@ import { Router } from "express";
 import { check } from "express-validator";
 import { validarJWT } from "../middlewares/validar-jwt.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
-import { PubliNoExists, commentNoExists } from "../helpers/db-validators.js";
+
+
+
 import {
-    getUserComments,
-    createComment,
-    updateComment,
-    deleteComment
-} from "./comment.controller.js";
+    commentsGet,
+    commentPut,
+    commentDelete,
+    commentPost
+} from "./comments.controller.js";
 
 const router = Router();
 
 router.get(
-    "/",
-    [
-        validarJWT
-    ],
-    getUserComments
-);
+    "/",commentsGet);
 
 router.post(
-    "/:id",
+    "/:Publications",
     [
         validarJWT,
-        check("id", "Invalid ID for Publications").isMongoId(),
-        check("id").custom(PubliNoExists),
-        check("text", "Text is required").not().isEmpty(),
+        check("Publications", "Invalid ID for Publications").isMongoId(),
+        check("commentText","The comment is required").not().isEmpty(),
         validarCampos
-    ],
-    createComment
-);
+    ],commentPost);
 
 router.put(
     "/:id",
     [
         validarJWT,
         check("id", "Invalid ID").isMongoId(),
-        check("id").custom(commentNoExists),
-        check("text", "Text is required").not().isEmpty(),
         validarCampos
-    ],
-    updateComment
-);
+    ],commentPut);
 
 router.delete(
     "/:id",
     [
         validarJWT,
         check("id", "Invalid ID").isMongoId(),
-        check("id").custom(commentNoExists),
-    ],
-    deleteComment
-);
+    ],commentDelete);
 
 export default router;
+ 

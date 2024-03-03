@@ -7,14 +7,18 @@ import morgan from 'morgan'
 import { dbConnection } from './mongo.js';
 import userRoutes from '../scr/users/users.routes.js';
 import authRoutes from '../scr/auth/auth.routes.js';
+import publicationRoutes from '../scr/publications/publications.routes.js';
+import commentRoutes from '../scr/comments/commets.routes.js';
 
 
 class Server{
     constructor(){
         this.app = express();
         this.port = process.env.PORT;
-        this.userPath = '/OpinionApi/v1/users'
-        this.authPath = '/GestorApi/v1/auth'
+        this.userPath = '/OpinionApi/v1/users';
+        this.authPath = '/OpinionApi/v1/auth';
+        this.publicationPath = '/OpinionApi/v1/publication';
+        this.commentPath = '/OpinionApi/v1/comment';
 
         this.middlewares();
         this.conectarDB();
@@ -36,6 +40,8 @@ class Server{
     routes(){
         this.app.use(this.userPath, userRoutes);
         this.app.use(this.authPath, authRoutes);
+        this.app.use(this.publicationPath, publicationRoutes);
+        this.app.use(this.commentPath, commentRoutes);
     }
 
     listen(){

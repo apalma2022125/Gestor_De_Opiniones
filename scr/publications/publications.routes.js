@@ -1,57 +1,51 @@
-import { Router } from 'express';
-import { check } from 'express-validator';
-
-import { validarCampos } from '../middlwares/validar-campos.js';
-import { validarJWT } from '../middlwares/validar-jwt.js';
-
-import { 
-    publicationPost,
+import { Router } from "express";
+import { check } from "express-validator";
+import {
     publicationsGet,
     publicationPut,
-    publicationDelete } from './publications.controller.js';
+    publicationDelete,
+    publicationsPost
+    } from "./publications.controller.js"
+import { validarJWT } from "../middlewares/validar-jwt.js";
+import { validarCampos } from "../middlewares/validar-campos.js";
+import { PubliNoExists} from "../helpers/db-validator.js";
 
 const router = Router();
 
+router.get(
+    "/",
+    validarJWT, publicationsGet);
+
 router.post(
-    '/',
+    "/",
     [
         validarJWT,
-        check("title", "The title is required").not().isEmpty(),
-        check("category", "The category is required").not().isEmpty(),
-        check("text", "The principal text is required").not().isEmpty(),
+        check("title", "Title is required").not().isEmpty(),
+        check("category", "Category is required").not().isEmpty(),
+        check("text", "Text is required").not().isEmpty(),
         validarCampos
-    ], publicationPost);
-
-router.get('/', validarJWT, publicationsGet);
-
-router.put(
-    "/:id",
-    [
-        validarJWT,
-        check('id', 'This is not a valid id').isMongoId(),
-        validarCampos
-    ],
-    publicationPut
+    ],  publicationsPost
 );
 
 router.put(
     "/:id",
     [
         validarJWT,
-        check('id', 'This is not a valid id').isMongoId(),
-        validarCampos
-    ],
-    publicationPut
-);
+        check("id", "Invalid ID for Publications").isMongoId(),
+        check("id").custom(PubliNoExists),
+        check("title", "Title is required").not().isEmpty(),
+        check("category", "Category is required").not().isEmpty(),
+        check("text", "Text is required").not().isEmpty(),
+    ],  publicationPut
+)
 
 router.delete(
     "/:id",
     [
         validarJWT,
-        check('id', 'This is not a valid id').isMongoId(),
-        validarCampos
-    ],
-    publicationDelete
-);
+        check("id", "Invalid ID for Publications").isMongoId(),
+        check("id").custom(PubliNoExists),
+    ],  publicationDelete
+)
 
 export default router;

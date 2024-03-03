@@ -1,0 +1,75 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "User collections",
+    "dateExported": "2024-03-03T08:51:25.485Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "62f6b41a-a496-40a2-b5f4-b4e49a8705c9",
+            "colId": "b3897af3-851a-4fe2-9915-937264272caa",
+            "containerId": "",
+            "name": "Users post",
+            "url": "http://localhost:3000/OpinionApi/v1/users",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-03-03T05:56:44.688Z",
+            "modified": "2024-03-03T07:26:15.353Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"User1\",\n  \"email\": \"usuario1@gmail.com\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5a74b2fe-6d18-452a-a1a9-528c020c6120",
+            "colId": "b3897af3-851a-4fe2-9915-937264272caa",
+            "containerId": "",
+            "name": "Users Get",
+            "url": "http://localhost:3000/OpinionApi/v1/users",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-03-03T05:57:27.211Z",
+            "modified": "2024-03-03T07:26:24.824Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "7b57817a-ff9f-4bcc-9cc2-790df760f391",
+            "colId": "b3897af3-851a-4fe2-9915-937264272caa",
+            "containerId": "",
+            "name": "Get User By Id",
+            "url": "http://localhost:3000/OpinionApi/v1/users/65e426174612fa835ca3a2bd",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-03-03T06:00:01.908Z",
+            "modified": "2024-03-03T07:26:54.433Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "df05be18-a792-4bfa-94c1-f46689c92690",
+            "colId": "b3897af3-851a-4fe2-9915-937264272caa",
+            "containerId": "",
+            "name": "User Put",
+            "url": "http://localhost:3000/OpinionApi/v1/users/65e426174612fa835ca3a2bd",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2024-03-03T06:00:10.731Z",
+            "modified": "2024-03-03T07:48:36.578Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"admin3\",\n  \"oldPassword\":\"111111\",\n  \"newPassword\": \"222222\"\n  \n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

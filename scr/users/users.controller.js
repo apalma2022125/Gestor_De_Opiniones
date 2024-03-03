@@ -30,49 +30,57 @@ export const getUserbyId = async(req, res) =>{
     });
 }
 
+export const userPut = async (req, res = response) => {
+    const { id } = req.params;
+    const { _id, oldPassword, newPassword, google, email, ...resto } = req.body;
 
-
-export const userPut = async (req = request, res = response) =>{
-    const {id} = req.params; 
-    const{_id, name, oldPassword, newPassword, email, google, ...resto} = req.body;
     const user = await User.findById(id);
-    const validPasword = bcryptjs.compareSync(oldPassword, user.password);
+
+    // Verifica si se proporciona oldPassword para la comparación
+    if (oldPassword) {
+        const validPassword = bcryptjs.compareSync(oldPassword, user.password);
+
+        if (!validPassword) {
+            return res.status(400).json({
+                msg: "Old password incorrect, password wasn't updated"
+            });
+        }
+
+        if (oldPassword === newPassword) {
+            return res.status(400).json({
+                msg: "These passwords are the same, please change the new password"
+            });
+        }
+    }
+
+    if (newPassword) {
+        const salt = bcryptjs.genSaltSync();
+        resto.password = bcryptjs.hashSync(newPassword, salt);
+    }
 
     await User.findByIdAndUpdate(id, resto);
 
-    const userUpdate = await User.findOne({_id: id});    
+    const userUpdated = await User.findOne({ _id: id });
 
     res.status(200).json({
-        msg: "This User has been update!!",
-        userUpdate
+        msg: 'Updated User',
+        userUpdated
     });
-
-
-/*     return !validPasword
-    ? res.status(400).json({ msg: "Incorrect old password, password not updated" })
-    : oldPassword === newPassword
-        ? res.status(400).json({ msg: "The new password must be different from the old one, please choose a new password" })
-        : newPassword
-            ? (() => {
-                const salt = bcryptjs.genSaltSync();
-                user.password = bcryptjs.hashSync(newPassword, salt);
-            })()
-            : null; */
-}
+};
 
 
 
 
-export const usersPost = async (req, res) =>{
-    const {name, email, password} = req.body;
-    const user = new User({name, email, password});
+export const usersPost = async (req, res) => {
+    const { name, email, password } = req.body;
+    const user = new User({ name, email, password });
 
     const salt = bcryptjs.genSaltSync();
     user.password = bcryptjs.hashSync(password, salt);
 
-    await User.save();
+    await user.save();
 
     res.status(200).json({
         user
     });
-}
+};

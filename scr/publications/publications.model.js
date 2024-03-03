@@ -15,8 +15,7 @@ const PublicationSchema = mongoose.Schema({
     },
     id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true,
+        ref: 'User'
     },
     estado: {
         type: Boolean,
@@ -25,8 +24,7 @@ const PublicationSchema = mongoose.Schema({
     },
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Comment',
-        default: []
+        ref: 'Comment'
     }]
 });
 
