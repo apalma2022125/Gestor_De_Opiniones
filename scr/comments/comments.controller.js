@@ -4,11 +4,11 @@ import jwt from 'jsonwebtoken';
 
 export const commentPost = async (req, res) =>{
     const token = req.header('x-token');
-    const { publi } = req.params;
+    const { pul } = req.params;
     const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
     const {commentText} = req.body;
 
-    const publication = await Publication.findById(publi);
+    const publication = await Publication.findById(pul);
 
     if (!publication) {
         return res.status(404).json({ 
@@ -22,7 +22,7 @@ export const commentPost = async (req, res) =>{
         });
     }
     
-    const comment = new Comment({ idUser: uid, commentText});
+    const comment = new Comment({ id: uid, commentText});
 
     await comment.save();
 
